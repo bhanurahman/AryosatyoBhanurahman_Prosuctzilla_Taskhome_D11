@@ -36,6 +36,10 @@ console.log('=========================================');
 class Student {
     constructor(nama, NIM, nilai, nilaiBaru) {
         console.log('Nama :', nama, 'NIM :', NIM,'nilai :', nilai,'Nilai Baru :', nilaiBaru);
+        this.nama = nama;
+        this.NIM = NIM;
+        this.nilai = nilai;
+        this.nilaiBaru = nilaiBaru 
     }
 
     setNilai() {
@@ -45,13 +49,19 @@ class Student {
         this.nilaiBaru = nilaiBaru;
     }
     rataRata(){
-        return this.nilai / 3;
+        let total = 0;
+    for (let i = 0; i < this.nilai.length; i++) {
+    const n = this.nilai[i];
+    total = total + n + 0;
+  }
+  const rata2 = total / this.nilai.length;
+  return rata2;
     }
     rataRataNilaiBaru(){
-        return (this.nilai + this.nilaiBaru) / 5
+        return this.rataRata();
     }
 }
-const student1 = new Student('Aryo', 200378734, [80, 100, 85], [90,55]);
+const student1 = new Student('Aryo', 200378734, [80, 50, 85], [90,55]);
 const student1RataRata = student1.rataRata();
 const student1RataRataNilaiBaru = student1.rataRataNilaiBaru();
 console.log('rata-rata nilai sebelumnya', student1RataRata);
@@ -59,11 +69,11 @@ console.log('rata-rata Nilai Baru', student1RataRataNilaiBaru);
  
 if (student1RataRataNilaiBaru >= 80) {
     console.log('Nilai = A');
-} else if (80 > student1RataRataNilaiBaru >= 70) {
+} else if (student1RataRataNilaiBaru > 80 && student1RataRataNilaiBaru >= 70) {
     console.log('Nilai = B');
-} else if (70 > student1RataRataNilaiBaru >= 65) {
+} else if (student1RataRataNilaiBaru > 70 && student1RataRataNilaiBaru >= 65) {
     console.log('Nilai = C');
-} else if (65 > student1RataRataNilaiBaru >= 60) {
+} else if (student1RataRataNilaiBaru > 65 && student1RataRataNilaiBaru >= 60) {
     console.log('Nilai = D');
 } else if (60 > student1RataRataNilaiBaru)
     console.log('Nilai = E');
